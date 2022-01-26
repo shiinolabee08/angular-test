@@ -1,0 +1,22 @@
+<h4>Customer Orders</h4>
+<label>Search Customer:</label>
+<select [(ngModel)]="selectedCustomer" (change)="searchOrders($event)">
+  <option *ngFor="let customer of customers" [ngValue]="customer.name">{{ customer.name }}</option>
+</select>
+
+<table cellspacing="4" cellpadding="4">
+  <thead>
+    <th>Order Id</th>
+    <th>Customer</th>
+    <th>Order Date</th>
+    <th>Product</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.id }}</td>
+      <td>{{ order.customer.name }}</td>
+      <td>{{ order.dateOrdered }}</td>
+      <td>{{ order.product.name }}</td>
+    </tr>
+  </tbody>
+</table>
